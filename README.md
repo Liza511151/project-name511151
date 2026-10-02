@@ -5,3 +5,14 @@
 
 Датасет доступен на Google Диске:
 [Скачать датасет](https://drive.google.com/drive/folders/19ohsMdo6cAWCHitWgR1lrEMp2tcfOdoR?usp=sharing)
+
+## Установка и запуск 
+
+### 1. Установить зависимости 
+```bash
+pip install -r requirements.txt
+```
+### 2. Запустить скрипт
+```bash
+python data_loader.py
+```
