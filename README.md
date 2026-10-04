@@ -3,8 +3,7 @@
 
 Размер файла: 5.95 КБ
 
-Датасет доступен на Google Диске:
-[Скачать датасет](https://drive.google.com/drive/folders/19ohsMdo6cAWCHitWgR1lrEMp2tcfOdoR?usp=sharing)
+[Скачать датасет](https://drive.google.com/file/d/1IGkNAXgYrcpQZ2feLChGal3Pu2UWN_Ll/view?usp=sharing)
 
 ## Установка и запуск 
 
