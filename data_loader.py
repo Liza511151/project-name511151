@@ -48,17 +48,24 @@ def load_data():
 
 
 def cast_types(df):
-    """Приводит типы столбцов датасета к правильным."""
+    """Приводит типы столбцов к правильным."""
     df = df.copy()
 
-    df["Batch_ID"] = df["Batch_ID"].astype("string")
-    df["Formula_Type"] = df["Formula_Type"].astype("category")
-    df["Mixing_Temperature"] = df["Mixing_Temperature"].astype("category")
+    # Числовые столбцы
     df["Viscosity_cP"] = pd.to_numeric(df["Viscosity_cP"], errors="coerce")
     df["pH"] = pd.to_numeric(df["pH"], errors="coerce")
-    df["Stability_Days"] = pd.to_numeric(
-        df["Stability_Days"], errors="coerce"
-    ).astype("Int64")
+    df["Stability_Days"] = pd.to_numeric(df["Stability_Days"], errors="coerce").astype("Int64")
+
+    # Mixing_Temperature: "High_60C" → 60.0, "Low_35C" → 35.0
+    df["Mixing_Temperature"] = (
+        df["Mixing_Temperature"].str.extract(r"(\d+)").astype(float)
+    )
+
+    # Formula_Type — категория
+    df["Formula_Type"] = df["Formula_Type"].astype("category")
+
+    # Batch_ID — строка
+    df["Batch_ID"] = df["Batch_ID"].astype(str)
 
     return df
 
