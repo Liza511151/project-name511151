@@ -65,8 +65,7 @@ def cast_types(df):
     df["Formula_Type"] = df["Formula_Type"].astype("category")
 
     # Batch_ID — строка
-    df["Batch_ID"] = df["Batch_ID"].astype(str)
-
+    df["Batch_ID"] = df["Batch_ID"].astype("string")
     return df
 
 
