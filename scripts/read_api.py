@@ -1,4 +1,3 @@
-import csv
 from pathlib import Path
 
 import requests
@@ -34,7 +33,7 @@ script_dir = Path(__file__).parent
 output_path = script_dir / "posts.csv"
 
 # сохраняю
-df.to_csv(output_path, index=False, encoding="utf-8")
+df.to_csv(output_path, index=False, encoding="utf-8-sig")
 print("Сохранено в", output_path)
 
 # вывожу таблицу вместо словарей
