@@ -2,18 +2,19 @@ import csv
 from pathlib import Path
 
 import requests
+import pandas as pd
 
 
 url = "https://jsonplaceholder.typicode.com/posts"
 
 r = requests.get(url, timeout=15)
-r.raise_for_status()  # упадёт с понятной ошибкой, если не 200
+r.raise_for_status()
 print("Статус:", r.status_code)
 
 data = r.json()
 print("Всего записей:", len(data))
 
-# собираю строки для датасета
+# собираю строки
 rows = []
 for post in data:
     rows.append({
@@ -25,20 +26,17 @@ for post in data:
         "body_length": len(post["body"]),
     })
 
-# путь к папке, где лежит скрипт
+# превращаю в DataFrame pandas
+df = pd.DataFrame(rows)
+
+# путь сохранения — рядом со скриптом
 script_dir = Path(__file__).parent
 output_path = script_dir / "posts.csv"
 
-# сохраняю в csv
-with open(output_path, "w", newline="", encoding="utf-8") as f:
-    writer = csv.DictWriter(
-        f,
-        fieldnames=["post_id", "user_id", "title", "body", "title_length", "body_length"],
-    )
-    writer.writeheader()
-    writer.writerows(rows)
-
+# сохраняю
+df.to_csv(output_path, index=False, encoding="utf-8")
 print("Сохранено в", output_path)
+
+# вывожу таблицу вместо словарей
 print("Первые 10 строк:")
-for row in rows[:10]:
-    print(row)
+print(df.head(10))
