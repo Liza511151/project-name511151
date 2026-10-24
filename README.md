@@ -15,3 +15,5 @@ pip install -r requirements.txt
 ```bash
 python data_loader.py
 ```
+### 3. Запуск EDA
+После того как данные скачаны и распакованы в папку `data`, откройте ноутбук `notebooks/EDA.ipynb` в VS Code или Jupyter Notebook.
