@@ -1,3 +1,7 @@
 gdown
 pandas
 pyarrow
+requests
+jupyter
+matplotlib
+seaborn
