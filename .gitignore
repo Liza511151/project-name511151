@@ -5,3 +5,6 @@ Thumbs.db
 *.log
 archive.zip
 data/
+*.parquet
+scripts/posts.csv
+posts.csv
