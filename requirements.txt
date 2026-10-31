@@ -1,1 +1,9 @@
 gdown
+pandas
+pyarrow
+requests
+jupyter
+matplotlib
+seaborn
+plotly
+kaleido
