@@ -8,3 +8,5 @@ data/
 *.parquet
 scripts/posts.csv
 posts.csv
+creds.db
+*.db

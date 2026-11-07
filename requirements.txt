@@ -7,3 +7,4 @@ matplotlib
 seaborn
 plotly
 kaleido
+psycopg2-binary
