@@ -10,3 +10,4 @@ scripts/posts.csv
 posts.csv
 creds.db
 *.db
+.env

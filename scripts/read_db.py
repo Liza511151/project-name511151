@@ -1,10 +1,15 @@
+import os
 import psycopg2
+from dotenv import load_dotenv
 
-DB_HOST = "85.193.80.59"
-DB_PORT = "5432"
-DB_NAME = "homeworks"
-DB_USER = "deexpert"
-DB_PASSWORD = "what_a_Wonderful_Day!"
+# Загружаем переменные из .env
+load_dotenv()
+
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
 
 try:
     conn = psycopg2.connect(
