@@ -1,15 +1,5 @@
-import os
 import psycopg2
-from dotenv import load_dotenv
-
-# Загружаем переменные из .env
-load_dotenv()
-
-DB_HOST = os.getenv("DB_HOST")
-DB_PORT = os.getenv("DB_PORT")
-DB_NAME = os.getenv("DB_NAME")
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
+from db_config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
 
 try:
     conn = psycopg2.connect(
@@ -27,7 +17,7 @@ try:
             CREATE TABLE IF NOT EXISTS liza511151 (
                 batch_id VARCHAR(50),
                 formula_type VARCHAR(50),
-                mixing_temperature VARCHAR(50),
+                mixing_temperature FLOAT,
                 viscosity_cp FLOAT,
                 ph FLOAT,
                 stability_days INT,
