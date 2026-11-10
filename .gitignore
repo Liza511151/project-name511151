@@ -11,3 +11,5 @@ posts.csv
 creds.db
 *.db
 .env
+__pycache__/
+*.pyc

@@ -11,6 +11,10 @@ def extract_data(file_id, zip_path="archive.zip", data_dir="data"):
     # распаковка
     print("Распаковываю zip...")
     with zipfile.ZipFile(zip_path, "r") as z:
+        for member in z.namelist():
+            # Защита от Zip Slip
+            if member.startswith('/') or '..' in member:
+                raise ValueError(f"Опасный путь в архиве: {member}")
         z.extractall(data_dir)
 
     # ищем нужный файл
@@ -20,6 +24,8 @@ def extract_data(file_id, zip_path="archive.zip", data_dir="data"):
             if name.endswith(".csv"):
                 csv_path = os.path.join(root, name)
                 break
+        if csv_path: # выход из внешнего цикла
+            break
 
     if csv_path is None:
         raise FileNotFoundError("Не нашел csv в архиве")
