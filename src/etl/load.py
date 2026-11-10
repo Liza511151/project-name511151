@@ -1,9 +1,12 @@
 import pandas as pd
 from sqlalchemy import create_engine
 from src.etl import config
+import logging
+
+logger = logging.getLogger(__name__)
 
 def load_data(df, table_name="liza511151"):
-    print(f"Подключаюсь к БД и записываю {len(df)} строк...")
+    logger.info(f"Подключаюсь к БД и записываю {len(df)} строк...")
     
     # Безопасная передача параметров (без склейки URL)
     engine = create_engine(
@@ -19,4 +22,4 @@ def load_data(df, table_name="liza511151"):
     
     # Встроенный метод Pandas для записи
     df.to_sql(table_name, engine, if_exists='append', index=False)
-    print("УСПЕХ! Данные записаны.")
+    logger.info("УСПЕХ! Данные записаны.")

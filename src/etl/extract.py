@@ -2,14 +2,17 @@ import os
 import gdown
 import zipfile
 import pandas as pd
+import logging
+
+logger = logging.getLogger(__name__)
 
 def extract_data(file_id, zip_path="archive.zip", data_dir="data"):
     # скачиваем если нет
     if not os.path.exists(zip_path):
-        print("Скачиваю...")
+        logger.info("Скачиваю...")
         gdown.download(id=file_id, output=zip_path, quiet=False)
     # распаковка
-    print("Распаковываю zip...")
+    logger.info("Распаковываю zip...")
     with zipfile.ZipFile(zip_path, "r") as z:
         for member in z.namelist():
             # Защита от Zip Slip
