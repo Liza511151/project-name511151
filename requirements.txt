@@ -1,11 +1,6 @@
 gdown
 pandas
-pyarrow
-requests
-jupyter
-matplotlib
-seaborn
-plotly
-kaleido
 psycopg2-binary
 python-dotenv
+sqlalchemy
+pyarrow
