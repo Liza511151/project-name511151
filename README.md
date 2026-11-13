@@ -11,9 +11,9 @@
 ```bash
 pip install -r requirements.txt
 ```
-### 2. Запустить скрипт
+### 2. Запустить ETL-пайплайн
 ```bash
-python data_loader.py
+python -m src.etl.main --limit 100
 ```
 ### 3. Запуск EDA
 После того как данные скачаны и распакованы в папку `data`, откройте ноутбук `notebooks/EDA.ipynb` в VS Code или Jupyter Notebook.
@@ -27,7 +27,3 @@ python data_loader.py
   - `load.py` — запись в PostgreSQL через Pandas.
   - `config.py` — конфигурация подключения (читает из `.env`).
   - `main.py` — точка входа с аргументами командной строки.
-
-### Как запустить ETL
-```bash
-python -m src.etl.main --limit 100
