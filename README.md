@@ -17,3 +17,17 @@ python data_loader.py
 ```
 ### 3. Запуск EDA
 После того как данные скачаны и распакованы в папку `data`, откройте ноутбук `notebooks/EDA.ipynb` в VS Code или Jupyter Notebook.
+
+
+## Структура проекта (ETL)
+
+- `src/etl/` — пакет ETL:
+  - `extract.py` — загрузка данных с Google Drive.
+  - `transform.py` — очистка данных и приведение типов.
+  - `load.py` — запись в PostgreSQL через Pandas.
+  - `config.py` — конфигурация подключения (читает из `.env`).
+  - `main.py` — точка входа с аргументами командной строки.
+
+### Как запустить ETL
+```bash
+python -m src.etl.main --limit 100
